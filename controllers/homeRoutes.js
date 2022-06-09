@@ -122,4 +122,70 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/create-blog', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  // if (req.session.logged_in) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
+
+  res.render('create-blog', {
+    logged_in: true,
+  });
+});
+
+router.get('/edit-blog', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  // if (req.session.logged_in) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
+
+  const blogs = {
+    id: "id",
+    title: "title1",
+    content: "content1",
+    author: "author",
+    date: "1/17/2022",
+  }
+
+  res.render('edit-blog', {
+    ...blogs,
+    logged_in: true,
+  });
+});
+
+router.get('/blogs/:id', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  // if (req.session.logged_in) {
+  //   res.redirect('/profile');
+  //   return;
+  // }
+
+  const blogs = {
+    id: "id",
+    title: "title1",
+    content: "content1",
+    author: "author",
+    date: "1/17/2022",
+    comments: [
+      {
+        content: "this is a comment",
+        author: "author",
+        date: "1/17/2022",
+      },
+      {
+        content: "this is a comment 2",
+        author: "author",
+        date: "1/17/2022",
+      },
+    ]
+  };
+
+  res.render('blog-page', {
+    ...blogs,
+    logged_in: true,
+  });
+});
+
 module.exports = router;

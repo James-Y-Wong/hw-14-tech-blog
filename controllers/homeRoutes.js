@@ -19,18 +19,21 @@ router.get('/', async (req, res) => {
 
     const blogs = [
       {
+        id: 1,
         title: "title1",
         content: "content1",
         author: "author",
         date: "1/17/2022"
       },
       {
+        id: 2,
         title: "title2",
         content: "content2",
         author: "author",
         date: "1/17/2022"
       },
       {
+        id: 3,
         title: "title3",
         content: "content3",
         author: "author",
@@ -84,18 +87,21 @@ router.get('/dashboard', async (req, res) => {
 
     const blogs = [
       {
+        id: 1,
         title: "title1",
         content: "content1",
         author: "author",
         date: "1/17/2022"
       },
       {
+        id: 2,
         title: "title2",
         content: "content2",
         author: "author",
         date: "1/17/2022"
       },
       {
+        id: 3,
         title: "title3",
         content: "content3",
         author: "author",

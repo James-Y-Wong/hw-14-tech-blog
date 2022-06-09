@@ -71,18 +71,40 @@ router.get('/project/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+// router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/dashboard', async (req, res) => {
   try {
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
-    });
+    // const userData = await User.findByPk(req.session.user_id, {
+    //   attributes: { exclude: ['password'] },
+    //   include: [{ model: Project }],
+    // });
 
-    const user = userData.get({ plain: true });
+    // const user = userData.get({ plain: true });
 
-    res.render('profile', {
-      ...user,
+    const blogs = [
+      {
+        title: "title1",
+        content: "content1",
+        author: "author",
+        date: "1/17/2022"
+      },
+      {
+        title: "title2",
+        content: "content2",
+        author: "author",
+        date: "1/17/2022"
+      },
+      {
+        title: "title3",
+        content: "content3",
+        author: "author",
+        date: "1/17/2022"
+      },
+    ];
+
+    res.render('dashboard', {
+      blogs,
       logged_in: true
     });
   } catch (err) {

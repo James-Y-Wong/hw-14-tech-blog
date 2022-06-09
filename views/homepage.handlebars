@@ -10,9 +10,9 @@
         <a href='/blogs/{{id}}' class='btn btn-primary'>Go somewhere</a>
       </div>
       <div class='card-footer text-muted'>Posted by
-        {{blog.author}}
+        {{blog.user.username}}
         on
-        {{blog.date}}</div>
+        {{blog.createdAt}}</div>
     </div>
   </div>
 {{/each}}

@@ -12,7 +12,7 @@ Post.init(
       autoIncrement: true,
     },
     title: DataTypes.STRING,
-    body: DataTypes.STRING,
+    content: DataTypes.STRING,
   },
   {
     sequelize,

@@ -20,30 +20,30 @@ router.get('/', async (req, res) => {
     const blogs = [
       {
         id: 1,
-        title: "title1",
-        content: "content1",
-        author: "author",
-        date: "1/17/2022"
+        title: 'title1',
+        content: 'content1',
+        author: 'author',
+        date: '1/17/2022',
       },
       {
         id: 2,
-        title: "title2",
-        content: "content2",
-        author: "author",
-        date: "1/17/2022"
+        title: 'title2',
+        content: 'content2',
+        author: 'author',
+        date: '1/17/2022',
       },
       {
         id: 3,
-        title: "title3",
-        content: "content3",
-        author: "author",
-        date: "1/17/2022"
+        title: 'title3',
+        content: 'content3',
+        author: 'author',
+        date: '1/17/2022',
       },
     ];
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      blogs, 
+    res.render('homepage', {
+      blogs,
       logged_in: true,
     });
   } catch (err) {
@@ -66,7 +66,7 @@ router.get('/project/:id', async (req, res) => {
 
     res.render('project', {
       ...project,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -88,30 +88,30 @@ router.get('/dashboard', async (req, res) => {
     const blogs = [
       {
         id: 1,
-        title: "title1",
-        content: "content1",
-        author: "author",
-        date: "1/17/2022"
+        title: 'title1',
+        content: 'content1',
+        author: 'author',
+        date: '1/17/2022',
       },
       {
         id: 2,
-        title: "title2",
-        content: "content2",
-        author: "author",
-        date: "1/17/2022"
+        title: 'title2',
+        content: 'content2',
+        author: 'author',
+        date: '1/17/2022',
       },
       {
         id: 3,
-        title: "title3",
-        content: "content3",
-        author: "author",
-        date: "1/17/2022"
+        title: 'title3',
+        content: 'content3',
+        author: 'author',
+        date: '1/17/2022',
       },
     ];
 
     res.render('dashboard', {
       blogs,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -148,12 +148,12 @@ router.get('/edit-blog', (req, res) => {
   // }
 
   const blogs = {
-    id: "id",
-    title: "title1",
-    content: "content1",
-    author: "author",
-    date: "1/17/2022",
-  }
+    id: 'id',
+    title: 'title1',
+    content: 'content1',
+    author: 'author',
+    date: '1/17/2022',
+  };
 
   res.render('edit-blog', {
     ...blogs,
@@ -169,23 +169,23 @@ router.get('/blogs/:id', (req, res) => {
   // }
 
   const blogs = {
-    id: "id",
-    title: "title1",
-    content: "content1",
-    author: "author",
-    date: "1/17/2022",
+    id: 'id',
+    title: 'title1',
+    content: 'content1',
+    author: 'author',
+    date: '1/17/2022',
     comments: [
       {
-        content: "this is a comment",
-        author: "author",
-        date: "1/17/2022",
+        content: 'this is a comment',
+        author: 'author',
+        date: '1/17/2022',
       },
       {
-        content: "this is a comment 2",
-        author: "author",
-        date: "1/17/2022",
+        content: 'this is a comment 2',
+        author: 'author',
+        date: '1/17/2022',
       },
-    ]
+    ],
   };
 
   res.render('blog-page', {

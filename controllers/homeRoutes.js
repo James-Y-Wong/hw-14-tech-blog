@@ -161,32 +161,44 @@ router.get('/edit-blog', (req, res) => {
   });
 });
 
-router.get('/blogs/:id', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  // if (req.session.logged_in) {
-  //   res.redirect('/profile');
-  //   return;
-  // }
-
-  const blogs = {
-    id: 'id',
-    title: 'title1',
-    content: 'content1',
-    author: 'author',
-    date: '1/17/2022',
-    comments: [
+router.get('/blogs/:id', async (req, res) => {
+  const postData = await Post.findByPk(req.params.id, {
+    include: [
       {
-        content: 'this is a comment',
-        author: 'author',
-        date: '1/17/2022',
+        model: User,
+        attributes: ['username'],
       },
       {
-        content: 'this is a comment 2',
-        author: 'author',
-        date: '1/17/2022',
+        model: Comment,
+        include: {
+          model: User,
+          attributes: ['username'],
+        },
       },
     ],
-  };
+  });
+
+  const blogs = postData.get({ plain: true });
+
+  // const blogs = {
+  //   id: 'id',
+  //   title: 'title1',
+  //   content: 'content1',
+  //   author: 'author',
+  //   date: '1/17/2022',
+  //   comments: [
+  //     {
+  //       content: 'this is a comment',
+  //       author: 'author',
+  //       date: '1/17/2022',
+  //     },
+  //     {
+  //       content: 'this is a comment 2',
+  //       author: 'author',
+  //       date: '1/17/2022',
+  //     },
+  //   ],
+  // };
 
   res.render('blog-page', {
     ...blogs,

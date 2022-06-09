@@ -2,30 +2,51 @@ const router = require('express').Router();
 const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-// router.get('/', async (req, res) => {
-//   try {
-//     // Get all projects and JOIN with user data
-//     const projectData = await Project.findAll({
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
+router.get('/', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    // const projectData = await Project.findAll({
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     },
+    //   ],
+    // });
 
-//     // Serialize data so the template can read it
-//     const projects = projectData.map((project) => project.get({ plain: true }));
+    // Serialize data so the template can read it
+    // const projects = projectData.map((project) => project.get({ plain: true }));
 
-//     // Pass serialized data and session flag into template
-//     res.render('homepage', { 
-//       projects, 
-//       logged_in: req.session.logged_in 
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    const blogs = [
+      {
+        title: "title1",
+        content: "content1",
+        author: "author",
+        date: "1/17/2022"
+      },
+      {
+        title: "title2",
+        content: "content2",
+        author: "author",
+        date: "1/17/2022"
+      },
+      {
+        title: "title3",
+        content: "content3",
+        author: "author",
+        date: "1/17/2022"
+      },
+    ];
+
+    // Pass serialized data and session flag into template
+    res.render('homepage', { 
+      blogs, 
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get('/project/:id', async (req, res) => {
   try {

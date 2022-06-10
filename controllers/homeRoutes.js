@@ -126,17 +126,27 @@ router.get('/edit-blog', (req, res) => {
   // }
 
   const blogs = {
-    id: 'id',
-    title: 'title1',
-    content: 'content1',
-    author: 'author',
-    date: '1/17/2022',
+    id: req.params.id,
+    title: req.body.title,
+    content: req.body.content,
   };
 
   res.render('edit-blog', {
     ...blogs,
     logged_in: req.session.logged_in,
   });
+});
+
+router.post('/edit-blog', withAuth, async (req, res) => {
+  try {
+    const editedBlog = await Post.create({
+      ...req.body,
+      userId: req.session.user_id,
+    });
+    res.status(200).json(editedBlog);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 router.get('/blogs/:id', async (req, res) => {

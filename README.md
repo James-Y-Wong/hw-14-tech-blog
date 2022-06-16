@@ -29,7 +29,16 @@
   - Click on the link of the deployed application
     
     [Tech Blog](https://ancient-ridge-55525.herokuapp.com/)
-  
+
+Here is a screenshot at the homepage. You can view posted blogs, and also comment on blogs after you view the entire thing
+
+> ![home page](/public/images/homepage.png)
+
+Here is the login/sign up screen. You can either login if you already have an account or sign up for an account. Once you are logged in, it will take you to your dashboard where you can add, edit, delete, you posts
+
+> ![login page](/public/images/loginpage.png)
+
+
   ## License
   
   [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)

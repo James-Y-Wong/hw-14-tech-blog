@@ -1,11 +1,25 @@
-<div class='row'>
-  <div class='card'>
-    <div class='card-header' id="blogTitle">{{post.title}}</div>
-    <div class='card-body'>
-      <textarea id='edit-blog-textarea' id='blogContent'>{{post.content}}</textarea>
-    </div>
-    <div class='card-footer text-muted'>
-      <button id='edit-blog-save-button' data-id='{{post.id}}'>Save Blog</button>
-    </div>
+<section id='editBlog' data-id='{{post.id}}'>
+  <div>
+    <h2 class='sectionHead'>Edit Blog</h2>
   </div>
-</div>
+  <form class='flex form edit-blog-form'>
+    <div class='formInput flex'>
+      <label for='title' class='form-label'>{{post.title}}</label>
+      <input type='text' id='blogTitle' />
+      <label for='content' class='form-label'>Content</label>
+      <textarea
+        name='blogContent'
+        id='blogContent'
+        cols='80'
+        rows='10'
+      >{{post.content}}</textarea>
+    </div>
+    <button
+      type='submit'
+      class='btn btn-primary'
+      id='editBlogSave'
+    >Save</button>
+  </form>
+</section>
+
+<script src='/js/post.js'></script>
